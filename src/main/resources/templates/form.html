@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cliente Form</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>-->
+</head>
+<body>
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+            <div class="d-table-cell align-middle">
+                <div class="text-center mt-4">
+                    <h1 class="h2">Formulario</h1>
+                    <p class="lead">
+                        Um formulário simples para cadastrar alguns dados
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="m-sm-4">
+                            <form class="needs-validation" action="#" th:action="@{/form}" th:object="${cliente}" method="post" novalidate>
+                                <div class="form-group has-validation">
+                                    <label>Name</label>
+                                    <input class="form-control form-control-lg" type="text" th:field="*{nome}" placeholder="Enter your name" required>
+                                    <div class="valid-feedback">Valido.</div>
+                                    <div class="invalid-feedback"> Campo nome obrigatório. </div>
+                                </div>
+                                <div class="form-group has-validation">
+                                    <label>CPF</label>
+                                    <input class="form-control form-control-lg" type="text" th:field="*{cpf}" placeholder="Enter your CPF" required>
+                                    <div class="valid-feedback">Valido.</div>
+                                    <div class="invalid-feedback"> Campo obrigatório. </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Age</label>
+                                    <input class="form-control form-control-lg" type="number" th:field="*{age}" placeholder="Enter your age" required>
+                                    <div class="valid-feedback">Valido.</div>
+                                    <div class="invalid-feedback"> Campo numérico obrigatório. </div>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button type="submit" class="btn btn-lg btn-primary">Cadastrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" th:src="@{/js/form.js}"> </script>
+</body>
+</html>
